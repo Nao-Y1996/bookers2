@@ -1,0 +1,17 @@
+<h3>User info</h3>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: " profile-img", fallback: "no_image.jpg" %>
+<table class="table ">
+	<tbody>
+		<tr>
+			<td>name</td>
+			<td><%= user.name %></td>
+		</tr>
+		<tr>
+			<td>introduction</td>
+			<td><%= user.introduction %></td>
+		</tr>
+	</tbody>
+</table>
+<button class="btn btn-default btn-block">
+	<%=link_to '', edit_user_path(current_user.id), class: "glyphicon glyphicon-wrench text-muted"%>
+</button>

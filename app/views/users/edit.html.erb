@@ -1,0 +1,19 @@
+<h1>User info</h1>
+<%= form_for(@user) do |f| %>
+    <div class="form-group has-icon">
+        <span>Name <%= f.text_field :name%></span>
+    </div>
+
+    <div class="form-group has-icon">Image
+        <div class="user-edit-image">
+            <%= attachment_image_tag @user, :profile_image%>
+        </div>
+        <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+    </div>
+    <div class="form-group has-icon">
+        <span>Introduction <%= f.text_area :introduction%></span>
+    </div>
+
+    <%= f.submit "Update User" %>
+<% end %>

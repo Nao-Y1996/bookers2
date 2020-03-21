@@ -1,6 +1,8 @@
-<% if user_signed_in? %>
-	<div class="profile-container">
-    <h3 class="profile-name"><%= @user.name %></h3>
-    <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+<div class='row'>
+	<div class="col-md-3">
+		<% if user_signed_in? %>
+		<%= render 'shared/userinfo', user: @user %><!--user infoの表示-->
+		<% end %>
 	</div>
-<% end %>
+	
+</div>
