@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+	<div class="profile-container">
+    <h3 class="profile-name"><%= @user.name %></h3>
+    <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+	</div>
+<% end %>

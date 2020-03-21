@@ -1,14 +1,6 @@
-<% if user_signed_in? %>
-	<h2>User info</h2>
-	<% @users.each do |user|%>
-	  <p><%= user.name%></p>
-	  <p><%= user.introduction %></p>
-	<%end%>
-<% else %>
-	<h2>Welcome to Bookers</h2>
-	<p>In Bookers,<br>
-	you can share and exchange your opinions , inpressions , and emotions
-	about various books!</p>
-	<p><%=link_to 'Log in', new_user_session_path %></p>
-	<p><%=link_to 'Sign up', new_user_registration_path %></p>
-<% end %>
+<h2>Welcome to Bookers</h2>
+<p>In Bookers,<br>
+you can share and exchange your opinions , inpressions , and emotions
+about various books!</p>
+<p><%=link_to 'Log in', new_user_session_path %></p>
+<p><%=link_to 'Sign up', new_user_registration_path %></p>

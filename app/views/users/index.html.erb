@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<h2>User info</h2>
+	<% @users.each do |user|%>
+	  <p><%= user.name%></p>
+	  <p><%= user.introduction %></p>
+	<%end%>
+<% else %>
+	<p>ログインされていない</p>
+<%end%>
