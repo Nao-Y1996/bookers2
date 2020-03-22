@@ -1,0 +1,35 @@
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div class="container">
+	<div class='row'>
+		<div class="col-xs-3">
+			<% if user_signed_in? %>
+			<%= render 'shared/userinfo', user: @book.user %><!--user infoの表示-->
+			<%= render 'books/form', book: @book %><!--book投稿formの表示-->
+			<% end %>
+		</div>
+		<div class="col-xs-9">
+			<h2>Book detail</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: " profile-img", fallback: "no_image.jpg", size:'50x50' %>
+							<%=link_to @book.user.name, user_path(current_user), class: "text-muted" %>
+						</td>
+						<td><%=link_to @book.title, book_path, class: "text-muted" %></td>
+						<td><%= @book.body%></td>
+						<% if @book.user==current_user %>
+						  <td><%=link_to "Edit", edit_book_path(@book.id), class: "text-muted btn btn-success" %></td>
+						  <td><%=link_to "Destroy", book_path(@book.id), method: :delete, data: { confirm: '削除しますか？' }, class: "text-muted btn btn-danger" %></td>
+						<%end%>
+					</tr>
+					
+				</tbody>
+			</table>
+			
+		</div>
+	</div>
+</div>
