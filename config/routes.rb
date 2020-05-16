@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   root 'home#index'
   get 'home/about', to: 'home#about'
   devise_for :users
