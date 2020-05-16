@@ -16,9 +16,15 @@
 			<table class="table">
 				<tbody>
 					<tr>
-						<td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: " profile-img", fallback: "no_image.jpg", size:'50x50' %>
-							<%=link_to @book.user.name, user_path(current_user), class: "text-muted" %>
+
+						<td>
+							<%=link_to user_path(current_user) do%>
+								<div><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: " profile-img", fallback: "no_image.jpg", size:'50x50' %></div>
+								<!--<div><%=link_to @book.user.name, user_path(current_user), class: "text-muted" %></div>-->
+								<div><%=link_to @book.user.name, user_path(current_user), class: "text-muted" %></div>
+							<%end%>
 						</td>
+
 						<td><%=link_to @book.title, book_path, class: "text-muted" %></td>
 						<td><%= @book.body%></td>
 						<% if @book.user==current_user %>
@@ -26,10 +32,9 @@
 						  <td><%=link_to "Destroy", book_path(@book.id), method: :delete, data: { confirm: '削除しますか？' }, class: "text-muted btn btn-danger" %></td>
 						<%end%>
 					</tr>
-					
+
 				</tbody>
 			</table>
-			
 		</div>
 	</div>
-</div>
+<div>

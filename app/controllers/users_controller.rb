@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def show
   	@book =Book.new
   	@user = User.find(params[:id])
-
   end
 
   def edit
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
 	else
 		render :edit
 	end
-
   end
 
   private#----------------------------------------------------
