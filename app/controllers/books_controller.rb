@@ -9,9 +9,12 @@ class BooksController < ApplicationController
 
     def show
     	@book = Book.find(params[:id])
+        @book_comment = BookComment.new
+
     end
 
     def create
+        #Binding.pry
     	@books = Book.all
     	@book = Book.new(book_params)
     	@book.user_id = current_user.id
@@ -25,6 +28,7 @@ class BooksController < ApplicationController
 
     def edit
     	@book = Book.find(params[:id])
+        #binding.pry
 
     end
 
